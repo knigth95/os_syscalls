@@ -5,7 +5,7 @@
 
 #define SYS_getcwd 17
 
-int main()
+int sys_getcwd()
 {
     char *buf = NULL;
     size_t size = 0;
@@ -30,14 +30,13 @@ int main()
     if (ret == -1) {
         perror("getcwd");
         exit(EXIT_FAILURE);
+        return *buf;
     }
 
-    /* 打印当前工作目录 */
-    printf("当前工作目录：%s\n", buf);
+    //printf("当前工作目录：%s\n", buf);
 
-    /* 释放缓冲区 */
+    
     free(buf);
     buf = NULL;
-
-    return 0;
+    return *buf;
 }
